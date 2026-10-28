@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fifty Bridges Insurance Services — Claim Your Fleet Protection Package</title>
+<meta name="description" content="Your customized commercial motor carrier coverage is built. Claim your pre-configured Fleet Vault, COI Portal, and $1,000 Safety Audit Credit.">
+<style>
+:root{--navy:#0a1f3d;--navy2:#102e5c;--gold:#d9a441;--gold2:#f2c572;--teal:#1f8a7a;--bg:#f4f6f8;--ink:#17233a;--muted:#5d6b82;--line:#dde5ee;--white:#fff;--red:#b42318}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+a{color:inherit}button{font:inherit;cursor:pointer}
+.topbar{background:var(--navy);color:#cfe0f5;font-size:13px;padding:9px 0}.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+.logo{font-weight:900;letter-spacing:.2px;font-size:20px;color:var(--navy)} .logo span{color:var(--gold)}
+.logo small{display:block;font-size:11px;letter-spacing:2.2px;color:var(--muted);font-weight:700}
+.navlinks{display:flex;gap:20px;font-size:14px;font-weight:600;color:#33415c} .navlinks a{text-decoration:none}
+.btn{display:inline-block;border:0;border-radius:10px;padding:13px 20px;font-weight:800;text-decoration:none}
+.btn-gold{background:var(--gold);color:#1a1200} .btn-navy{background:var(--navy);color:#fff} .btn-outline{background:transparent;border:2px solid var(--navy);color:var(--navy)} .btn-white{background:#fff;color:var(--navy)}
+.btn:hover{filter:brightness(1.06)} .btn-sm{padding:10px 15px;font-size:14px}
+.hero{background:radial-gradient(900px 420px at 85% 0%,#1d4a7a 0%,transparent 60%),var(--navy);color:#fff;padding:54px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:start}
+.eyebrow{color:var(--gold2);font-weight:800;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+h1{font-size:52px;line-height:1.02;margin:14px 0 16px;letter-spacing:-.5px} h1 em{color:var(--gold2);font-style:normal}
+.lede{font-size:18px;color:#d7e3f3;max-width:620px}
+.pillars{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0} .pillar{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.portal{background:#fff;color:var(--ink);border-radius:18px;padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.portal h2{margin:0 0 6px;font-size:22px;color:var(--navy)} .portal p{margin:0 0 14px;color:var(--muted);font-size:14px}
+label{font-size:13px;font-weight:800;display:block;margin:12px 0 6px}
+input,select,textarea{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:10px;font:inherit;background:#fff}
+input:focus,select:focus,textarea:focus{outline:3px solid #ffe9b8;border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vaultcard{margin-top:16px;border:1px solid var(--line);border-radius:14px;padding:16px;background:#f8fafc}
+.vaultcard h3{margin:0 0 4px;font-size:17px;color:var(--navy)} .vaultcard p{margin:0;color:var(--muted);font-size:13.5px}
+.badge{display:inline-block;background:#e6f4f0;color:#0f6b5e;border:1px solid #bfe6dc;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:900;letter-spacing:.4px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px;font-size:13.5px} .kv b{display:block;color:var(--navy)}
+.mini{font-size:12.5px;color:var(--muted);margin-top:10px}
+section{padding:58px 0} h2.sec{font-size:36px;line-height:1.1;color:var(--navy);margin:8px 0 12px;letter-spacing:-.3px} .sub{color:var(--muted);font-size:17px;max-width:760px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px} .card h3{margin:8px 0 8px;color:var(--navy);font-size:20px} .card p{margin:0;color:var(--muted)}
+.icon{width:46px;height:46px;border-radius:12px;background:#eef3fa;display:grid;place-items:center;font-size:22px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px} .step{background:var(--navy);color:#fff;border-radius:16px;padding:22px} .step span{color:var(--gold2);font-weight:900;font-size:28px} .step p{color:#cfe0f5}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;margin-top:24px} th,td{padding:16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top} th{background:var(--navy);color:#fff} th:last-child{color:var(--gold2)} td:first-child{font-weight:700;color:var(--navy);width:26%} .bad{color:var(--red)} .good{color:#0f6b5e;font-weight:700}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.tool{border:1px solid #f0d9a0;background:#fff8e6;border-radius:16px;padding:22px} .tool .lose{margin-top:14px;background:#fff;border:1px dashed #d9a441;border-radius:10px;padding:11px 12px;font-size:13.5px}
+.formwrap{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:24px}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-weight:600;margin:10px 0} .checks input{width:18px;height:18px;margin-top:2px;accent-color:var(--navy)}
+.summary{background:#f0f5fb;border-radius:16px;padding:20px} .summary h3{margin-top:0;color:var(--navy)}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(10,31,61,.97);color:#fff;padding:12px 0} .sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap} .sticky p{margin:0;font-size:14px} .sticky strong{color:var(--gold2)}
+footer{background:var(--navy);color:#cfe0f5;padding:44px 0 90px} footer a{color:#fff}
+dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% - 32px)} dialog::backdrop{background:rgba(5,15,30,.6)}
+@media(max-width:900px){.hero-grid,.formwrap{grid-template-columns:1fr}h1{font-size:40px}.cards,.steps,.tools{grid-template-columns:1fr}.navlinks{display:none}table{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>Commercial Motor Carrier Insurance &nbsp;•&nbsp; Fleet Owners &amp; Independent Owner-Operators</span><span>Your package is pre-configured — review it, don't start over.</span></div></div>
+<header><div class="wrap nav"><div class="logo">FIFTY <span>BRIDGES</span><small>INSURANCE SERVICES</small></div><nav class="navlinks"><a href="#vault">Your Fleet Vault</a><a href="#tools">Your Tools</a><a href="#compare">Compare</a><a href="#claim">Claim Your Package</a></nav><a class="btn btn-navy btn-sm" href="#claim">Claim Your Package</a></div></header>
+
+<main>
+<section class="hero" style="padding-top:44px;padding-bottom:44px"><div class="wrap hero-grid">
+<div>
+<p class="eyebrow">Pre-configured • Not a cold quote</p>
+<h1>Your Fifty Bridges Fleet Vault is Ready.</h1>
+<p class="lede">Your customized commercial motor carrier coverage is built — not merely offered. Claim your prepared risk mitigation plan, your COI portal, and your safety system before you walk away from them.</p>
+<div class="pillars"><span class="pillar">✓ COI Portal — Active Day 1</span><span class="pillar">✓ $1,000 Safety Audit Credit — Locked In</span><span class="pillar">✓ DOT Compliance Tracker — Ready</span></div>
+<p style="color:#d7e3f3">Built for fleets and owner-operators who need coverage that works as hard as their trucks do — without waiting days for a certificate, a callback, or a workaround.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn btn-gold" href="#claim">Claim Your Fifty Bridges Fleet Package</a><a class="btn btn-white" href="#vault">Unlock Your Pre-Configured COI Portal</a></div>
+<p class="mini" style="color:#aebfd8">No payment required to review your package. This preview is illustrative — final coverage, limits, and pricing are confirmed after underwriting review.</p>
+</div>
+
+<div class="portal" id="portal">
+<h2>Activate Your Fifty Bridges Fleet Portal</h2>
+<p>Type your company name or US DOT # — your preview is generated instantly, below.</p>
+<label for="company">Company Name</label>
+<input id="company" placeholder="e.g. Blue Ridge Transport LLC" autocomplete="organization">
+<div class="row2"><div><label for="dot">US DOT # (optional)</label><input id="dot" placeholder="e.g. 4254385" inputmode="numeric"></div><div><label for="trucks">Power Units</label><select id="trucks"><option>1–5</option><option selected>6–20</option><option>21–50</option><option>51+</option></select></div></div>
+<div class="vaultcard" aria-live="polite">
+<span class="badge">● PRE-CONFIGURED — YOURS TO REVIEW</span>
+<h3 id="previewTitle">Your Customized Fleet Risk Profile &amp; COI Center (Pre-Configured)</h3>
+<p id="previewSub">Enter your company name above to personalize this vault. Your COI generator, compliance tracker, and safety credit are already staged for you.</p>
+<div class="kv"><div><b>Vault ID</b><span id="vaultId">FB-PENDING</span></div><div><b>US DOT #</b><span id="dotOut">—</span></div><div><b>COI Generator</b><span style="color:#0f6b5e;font-weight:700">Active — 24/7</span></div><div><b>Safety Audit Credit</b><span style="font-weight:800">$1,000 — Locked In</span></div></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn btn-navy btn-sm" type="button" onclick="openCOI()">Generate a Sample COI</button><a class="btn btn-outline btn-sm" href="#vault">Review Your Vault ↓</a></div>
+<p class="mini">Walking away doesn't cancel a quote — it leaves this pre-built system behind.</p>
+</div>
+</div>
+</div></section>
+
+<section id="vault" style="background:#fff"><div class="wrap">
+<p class="eyebrow">Section 02 — The Pre-Built Fleet Vault</p>
+<h2 class="sec">This isn't something you buy.<br>It's something you claim.</h2>
+<p class="sub">Choosing Fifty Bridges isn't starting a policy from scratch. It's taking ownership of a fully built operational asset — already set up, already working, already yours to review.</p>
+<div class="cards">
+<div class="card"><div class="icon">📄</div><span class="badge">ACTIVE</span><h3>Your Instant 24/7 COI Generator — Active</h3><p>Issue certificates when a shipper, broker, or load demands one — nights, weekends, and dispatch hours included. No 24–48 hour wait, no broker bottleneck.</p></div>
+<div class="card"><div class="icon">🛡️</div><span class="badge">LOCKED IN</span><h3>Your Pre-Funded $1,000 Safety Audit Credit — Locked In</h3><p>Use it toward a structured safety and loss-control review for your fleet. It's already allocated to your vault — not a discount you have to negotiate later.</p></div>
+<div class="card"><div class="icon">📊</div><span class="badge">READY FOR REVIEW</span><h3>Your DOT Compliance &amp; Loss-Control Tracker — Ready</h3><p>Filings, renewals, driver files, and loss trends in one view. See what needs attention before a regulator, insurer, or shipper does.</p></div>
+</div>
+<div class="steps">
+<div class="step"><span>01</span><h3>Activate</h3><p>Enter your company or DOT # above. Your vault preview appears instantly.</p></div>
+<div class="step"><span>02</span><h3>Review what's already yours</h3><p>Check your COI portal, safety credit, and compliance tracker — no forms to start from zero.</p></div>
+<div class="step"><span>03</span><h3>Lock it in</h3><p>Confirm your tailored coverage below. We finalize underwriting — you keep the system.</p></div>
+</div>
+</div></section>
+
+<section id="tools"><div class="wrap">
+<p class="eyebrow">Section 03 — Reverse Trial: Already Bundled</p>
+<h2 class="sec">These tools are already in your account.</h2>
+<p class="sub">They're not add-ons to buy later. They're pre-bundled assets — and they stay with a traditional broker's waiting room if you stay there.</p>
+<div class="tools">
+<div class="tool"><h3>Telematics Integrations</h3><p>Connect ELD and telematics data to spot risky driving, idling, and maintenance patterns early — before they become claims.</p><div class="lose"><b>If you walk away:</b> you lose this live safety view and start again with manual check-ins.</div></div>
+<div class="tool"><h3>Safety Training Modules</h3><p>Ready-to-assign driver training on defensive driving, cargo securement, hours-of-service, and post-crash response.</p><div class="lose"><b>If you walk away:</b> your drivers lose access to training that's already assigned in your vault.</div></div>
+<div class="tool"><h3>Driver Onboarding Checklists</h3><p>Standardized hiring, qualification, and file checklists so a new driver is road-ready — and audit-ready — faster.</p><div class="lose"><b>If you walk away:</b> onboarding goes back to scattered paperwork and missed documents.</div></div>
+</div>
+</div></section>
+
+<section id="compare" style="background:#fff"><div class="wrap">
+<p class="eyebrow">Section 04 — What You Already Have vs. What You'd Go Back To</p>
+<h2 class="sec">Don't compare policies. Compare what you own.</h2>
+<table>
+<tr><th>Operational Asset</th><th>Standard Brokers</th><th>Your Fifty Bridges Account</th></tr>
+<tr><td>Certificate of Insurance</td><td class="bad">Wait 24–48 hours for a COI</td><td class="good">Your self-service COI Portal active day 1</td></tr>
+<tr><td>Safety &amp; Deductible Credits</td><td class="bad">Unused premiums lost</td><td class="good">Your accumulated Safety &amp; Deductible Credits carried forward</td></tr>
+<tr><td>Compliance Visibility</td><td class="bad">Renewal reminders and scattered files</td><td class="good">Your DOT Compliance &amp; Loss-Control Tracker — ready for review</td></tr>
+<tr><td>Safety Investment</td><td class="bad">Pay separately, if at all</td><td class="good">Your $1,000 Safety Audit Credit — locked in</td></tr>
+<tr><td>Driver Readiness</td><td class="bad">Manual onboarding, every time</td><td class="good">Your onboarding checklists and training modules — pre-loaded</td></tr>
+<tr><td>Support Model</td><td class="bad">A policy seller</td><td class="good">A protective partner in your operation</td></tr>
+</table>
+<p class="mini">Ownership language is deliberate: this page shows the system built for you, so the cost of leaving is visible — not just the price of staying.</p>
+</div></section>
+
+<section id="claim"><div class="wrap">
+<p class="eyebrow">Section 05 — Review &amp; Lock In</p>
+<h2 class="sec">Review &amp; Lock In Your Tailored Coverage</h2>
+<p class="sub">Not "fill out this form for a quote." Review the package already prepared for you — keep what's yours, remove only what you truly don't want.</p>
+<div class="formwrap">
+<form id="claimForm">
+<div class="row2"><div><label>Company Name *</label><input id="fCompany" required placeholder="Your company"></div><div><label>US DOT #</label><input id="fDot" placeholder="Optional"></div></div>
+<div class="row2"><div><label>Contact Name *</label><input required placeholder="Full name"></div><div><label>Work Email *</label><input type="email" required placeholder="you@company.com"></div></div>
+<div class="row2"><div><label>Power Units</label><select><option>1–5</option><option>6–20</option><option>21–50</option><option>51+</option></select></div><div><label>Primary Cargo</label><select><option>General Freight</option><option>Refrigerated</option><option>Flatbed / Heavy Haul</option><option>Auto Hauler</option><option>Other</option></select></div></div>
+<p style="font-weight:800;margin:20px 0 4px">Already in your package — uncheck only to give it up:</p>
+<div class="checks">
+<label><input type="checkbox" checked> Auto Liability — your core motor carrier protection</label>
+<label><input type="checkbox" checked> Motor Truck Cargo — your freight protection</label>
+<label><input type="checkbox" checked> Physical Damage — your equipment protection</label>
+<label><input type="checkbox" checked> Uninsured Motorist — State Minimum (standard in your package)</label>
+<label><input type="checkbox" checked> $1,000 Safety Audit Credit — locked in</label>
+<label><input type="checkbox" checked> 24/7 COI Portal access</label>
+</div>
+<label>Anything we should protect first? (optional)</label><textarea rows="3" placeholder="e.g. Reefer breakdown, trailer interchange, new driver onboarding…"></textarea>
+<button class="btn btn-gold" type="submit" style="margin-top:16px;width:100%">Claim Your Fifty Bridges Fleet Package →</button>
+<p class="mini" id="formMsg" aria-live="polite"></p>
+</form>
+<div class="summary">
+<h3>Your Package — At a Glance</h3>
+<p><b id="sumCompany">Your company</b> — <span id="sumDot">DOT # to confirm</span></p>
+<ul><li>Your COI Center: <b>Pre-Configured</b></li><li>Your Safety Audit Credit: <b>$1,000 — Locked In</b></li><li>Your Compliance Tracker: <b>Ready for Review</b></li><li>Your Tools: <b>Telematics, Training &amp; Onboarding</b></li></ul>
+<p>Next step after you claim: a Fifty Bridges specialist reviews your tailored coverage, confirms limits and pricing, and hands you the keys to your vault. No obligation is created by reviewing your package.</p>
+<a class="btn btn-navy" href="#portal">Unlock Your Pre-Configured COI Portal</a>
+<p class="mini">Language rule, applied throughout: we don't say "we offer truck insurance" — we say <i>"your customized commercial motor carrier coverage is built."</i> We don't say "request a proposal" — we say <i>"claim your prepared risk mitigation plan."</i></p>
+</div>
+</div>
+</div></section>
+</main>
+
+<div class="sticky"><div class="wrap"><p><strong>Your Fleet Vault is staged.</strong> Don't leave it unclaimed — <span id="stickyName">your package</span> is ready to review.</p><a class="btn btn-gold btn-sm" href="#claim">Claim Your Package</a></div></div>
+
+<footer><div class="wrap">
+<p style="font-size:20px;font-weight:900;color:#fff">FIFTY BRIDGES <span style="color:var(--gold)">INSURANCE SERVICES</span></p>
+<p>4695 MacArthur Court, Newport Beach, CA 92660</p>
+<p>Professional, authoritative, partner-focused, and protective. Built for fleet owners and independent owner-operators.</p>
+<p style="font-size:13px;color:#9db2cc">This site is a marketing preview. Coverage is subject to underwriting, policy terms, and applicable filings. The $1,000 Safety Audit Credit and tool access are described as pre-configured in your vault preview; eligibility and program terms are confirmed on claim review.</p>
+</div></footer>
+
+<dialog id="coiDialog"><h2 style="color:var(--navy);margin-top:0">Sample Certificate of Insurance — Preview</h2><p><b id="coiCompany">Your Company</b><br><span id="coiDot">US DOT # —</span><br>Certificate Holder: Shipper / Broker (on request)<br>Coverage preview: Auto Liability • Motor Truck Cargo • Physical Damage<br>Status: <span style="color:#0f6b5e;font-weight:800">Pre-Configured in Your COI Center</span></p><p style="color:var(--muted);font-size:14px">This is a sample layout for review only — not a live certificate. Your live COI is issued from your portal after your coverage is locked in.</p><form method="dialog"><button class="btn btn-navy">Close Preview</button></form></dialog>
+
+<script>
+const company=document.getElementById('company'),dot=document.getElementById('dot');
+function sync(){
+ const name=company.value.trim()||'Your Company';
+ const d=dot.value.trim();
+ document.getElementById('previewTitle').textContent=name+"'s Customized Fleet Risk Profile & COI Center (Pre-Configured)";
+ document.getElementById('previewSub').textContent=name+' — your COI generator, compliance tracker, and $1,000 safety credit are staged and ready for your review.';
+ document.getElementById('dotOut').textContent=d||'—';
+ document.getElementById('vaultId').textContent='FB-'+(d?d.slice(-6):'READY');
+ document.getElementById('sumCompany').textContent=name;
+ document.getElementById('sumDot').textContent=d?('US DOT # '+d):'DOT # to confirm';
+ document.getElementById('stickyName').textContent=name+"'s package";
+ const fC=document.getElementById('fCompany'),fD=document.getElementById('fDot');
+ if(fC && document.activeElement!==fC) fC.value=company.value;
+ if(fD && document.activeElement!==fD) fD.value=dot.value;
+}
+company.addEventListener('input',sync);dot.addEventListener('input',sync);sync();
+function openCOI(){
+ const name=company.value.trim()||'Your Company';
+ document.getElementById('coiCompany').textContent=name;
+ document.getElementById('coiDot').textContent='US DOT # '+(dot.value.trim()||'—');
+ document.getElementById('coiDialog').showModal();
+}
+document.getElementById('claimForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const name=document.getElementById('fCompany').value.trim()||company.value.trim()||'Your Company';
+ document.getElementById('formMsg').innerHTML='<b style="color:#0f6b5e">✓ Claim received for review — '+name+'.</b> Your Fleet Vault stays staged for you. A Fifty Bridges specialist will confirm your tailored coverage next. (Demo form: no data is sent or stored on this static page.)';
+});
+</script>
+</body>
+</html>
