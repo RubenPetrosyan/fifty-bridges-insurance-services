@@ -9,6 +9,8 @@ Commercial truck insurance brokerage website built around the endowment effect: 
 - **Reverse Trial tools** — Telematics integrations, Safety Training Modules, Driver Onboarding Checklists, framed as assets lost if the visitor walks away.
 - **Endowment-driven comparison** — Standard Brokers vs. Your Fifty Bridges Account, compared on operational assets, not generic features.
 - **Claim form** — "Review & Lock In Your Tailored Coverage" with pre-checked package items (uncheck only to give them up) and ownership CTAs: "Claim Your Fifty Bridges Fleet Package" / "Unlock Your Pre-Configured COI Portal."
+- **Real COI PDF** — "Download Your Sample COI (PDF)" generates a real, downloadable PDF in the browser (no server, no external library). It is clearly marked SAMPLE — NOT A LIVE CERTIFICATE, contains no policy number or insurer, and is not a binding certificate. A live COI is issued only after coverage is locked in.
+- **Claim submissions by email** — The claim form posts to FormSubmit (AJAX) and is emailed to rubenpetrosyan89@gmail.com. Note: the first submission triggers a one-time FormSubmit activation email to that inbox, which must be clicked before later submissions are delivered. The form also has a plain POST fallback (same endpoint) if JavaScript is off. The destination email is visible in the page source — a tradeoff of a static form.
 
 ## Tone & language rules
 
