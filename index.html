@@ -154,17 +154,17 @@ section.hero{opacity:1;transform:none}
 
 <div class="portal" id="portal">
 <h2>Activate Your Fifty Bridges Fleet Portal</h2>
-<p>Type your company name or US DOT # — your preview updates instantly, right below.</p>
-<label for="company">Company Name</label>
-<input id="company" placeholder="e.g. Blue Ridge Transport LLC" autocomplete="organization" maxlength="100">
-<div class="row2"><div><label for="dot">US DOT # (optional)</label><input id="dot" placeholder="e.g. 3475651" inputmode="numeric" maxlength="10"></div><div><label for="trucks">Power Units</label><select id="trucks"><option>1–5</option><option selected>6–20</option><option>21–50</option><option>51+</option></select></div></div>
+<p>Enter your US DOT # — we pull your company, fleet size, cargo, and insurance history from FMCSA, so you don't have to type them.</p>
+<label for="company">Company Name (auto-filled from FMCSA)</label>
+<input id="company" placeholder="Auto-filled after your DOT lookup" autocomplete="organization" maxlength="100">
+<div class="row2"><div><label for="dot">US DOT # *</label><input id="dot" placeholder="e.g. 3475651" inputmode="numeric" maxlength="10" required></div><div><label for="trucks">Power Units</label><select id="trucks"><option>1–5</option><option selected>6–20</option><option>21–50</option><option>51+</option></select></div></div>
 <button class="btn btn-navy" type="button" id="lookupBtn" style="margin-top:14px;width:100%">Look Up My DOT on FMCSA SAFER →</button>
 <p class="mini" id="lookupMsg" aria-live="polite"></p>
 <div id="fmcsaResult" style="display:none;border:1px solid #dde5ee;border-radius:12px;padding:14px;margin-top:12px;background:#f8fafc"></div>
 <div class="vaultcard" aria-live="polite">
 <span class="badge">● PRE-CONFIGURED — YOURS TO REVIEW</span>
 <h3 id="previewTitle">Your Customized Fleet Risk Profile &amp; COI Center (Pre-Configured)</h3>
-<p id="previewSub">Enter your company name above to make this vault yours. Your COI generator, compliance tracker, and safety credit are already staged for you.</p>
+<p id="previewSub">Enter your US DOT # above to make this vault yours. Your COI generator, compliance tracker, and safety credit are already staged for you.</p>
 <div class="progress" aria-label="How much of your vault you have claimed"><span id="progressBar" style="width:40%"></span></div>
 <p class="mini" id="progressText" style="margin-top:0"><strong>Your vault is 40% claimed</strong> — it's already built. Finish claiming it, don't leave the rest behind.</p>
 <div class="kv"><div><b>Vault ID</b><span id="vaultId">FB-PENDING</span></div><div><b>US DOT #</b><span id="dotOut">—</span></div><div><b>Your COI Generator</b><span style="color:#0f6b5e;font-weight:700">Active — 24/7</span></div><div><b>Your Safety Audit Credit</b><span style="font-weight:800">$1,000 — Locked In</span></div></div>
@@ -186,7 +186,7 @@ section.hero{opacity:1;transform:none}
 <article class="card"><div class="icon" aria-hidden="true">📊</div><span class="badge">ALREADY YOURS • READY</span><h3>Your DOT Compliance &amp; Loss-Control Tracker</h3><p>Filings, renewals, driver files, and loss trends in one place. Spot the problem before a regulator, an insurer, or a shipper spots it for you.</p></article>
 </div>
 <div class="steps">
-<div class="step"><span>01</span><h3>Activate</h3><p>Type your company or DOT # above. Your vault preview shows up instantly.</p></div>
+<div class="step"><span>01</span><h3>Activate</h3><p>Enter your US DOT # above and run the FMCSA lookup. Your vault preview shows up instantly.</p></div>
 <div class="step"><span>02</span><h3>Look at what's already yours</h3><p>Check your COI portal, your safety credit, and your compliance tracker. Nothing to build from zero.</p></div>
 <div class="step"><span>03</span><h3>Lock it in</h3><p>Confirm your tailored coverage below. We handle underwriting — you keep the whole system.</p></div>
 </div>
@@ -253,12 +253,12 @@ section.hero{opacity:1;transform:none}
 <input type="hidden" name="_subject" value="New Fifty Bridges Fleet Package Claim">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
-<div class="row2"><div><label for="fCompany">Company Name *</label><input id="fCompany" name="company" required placeholder="Your company" autocomplete="organization"></div><div><label for="fDot">US DOT #</label><input id="fDot" name="us_dot" placeholder="Optional" inputmode="numeric" maxlength="10"></div></div>
+<div class="row2"><div><label for="fCompany">Company Name *</label><input id="fCompany" name="company" required placeholder="Your company" autocomplete="organization"></div><div><label for="fDot">US DOT # *</label><input id="fDot" name="us_dot" required placeholder="e.g. 3475651" inputmode="numeric" maxlength="10"></div></div>
 <div class="row2"><div><label for="fContact">Contact Name *</label><input id="fContact" name="contact_name" required placeholder="Full name" autocomplete="name"></div><div><label for="fEmail">Work Email *</label><input id="fEmail" name="email" type="email" required placeholder="you@company.com" autocomplete="email"></div></div>
 <div class="row2"><div><label for="fTrucks">Power Units</label><select id="fTrucks" name="power_units"><option>1–5</option><option>6–20</option><option>21–50</option><option>51+</option></select></div><div><label for="fCargo">Primary Cargo</label><select id="fCargo" name="primary_cargo"><option>General Freight</option><option>Refrigerated</option><option>Flatbed / Heavy Haul</option><option>Auto Hauler</option><option>Other</option></select></div></div>
 <div class="row2"><div><label for="fMc">MC # (auto-filled from FMCSA)</label><input id="fMc" name="mc_number" placeholder="e.g. MC-1139021"></div><div><label for="fPhone">Phone (auto-filled from FMCSA)</label><input id="fPhone" name="phone" placeholder="(xxx) xxx-xxxx" autocomplete="tel"></div></div>
 <div><label for="fAddress">Physical Address (from FMCSA — this is NOT garaging)</label><input id="fAddress" name="physical_address" placeholder="Auto-filled after a DOT lookup"></div>
-<p class="mini">FMCSA lookup fills company, MC, address, phone, and fleet size only. It never fills FEIN or garaging — those stay blank until you confirm them separately. Insurance history is also not auto-filled (see below).</p>
+<p class="mini">US DOT # is required — click "Look Up My DOT on FMCSA SAFER" above and FMCSA fills company, MC, address, phone, and fleet size only. It never fills FEIN or garaging — those stay blank until you confirm them separately.</p>
 <p style="font-weight:800;margin:20px 0 4px">Already in your package — uncheck only to give it up:</p>
 <div class="checks" id="packageChecks">
 <label><input type="checkbox" checked name="package_items" value="Auto Liability" data-item="Auto Liability"> Auto Liability — your core motor carrier protection</label>
@@ -361,10 +361,10 @@ function updateRemoved(){
   updateProgress();
 }
 if(company)company.addEventListener('input',function(){sync(false);});
-if(dot)dot.addEventListener('input',function(){sync(false);});
+if(dot)dot.addEventListener('input',function(){window._lookupDone=false; window._lookupFailed=false; sync(false);});
 if(trucks)trucks.addEventListener('change',function(){ if(fTrucks)fTrucks.value=trucks.value; });
 if(fCompany)fCompany.addEventListener('input',function(){sync(true);});
-if(fDot)fDot.addEventListener('input',function(){sync(true);});
+if(fDot)fDot.addEventListener('input',function(){window._lookupDone=false; window._lookupFailed=false; sync(true);});
 if(fTrucks)fTrucks.addEventListener('change',function(){ if(trucks)trucks.value=fTrucks.value; });
 var checks=el('packageChecks');
 if(checks)checks.addEventListener('change',updateRemoved);
@@ -378,19 +378,23 @@ function powerBucket(n){
   if(n<=5)return '1–5'; if(n<=20)return '6–20'; if(n<=50)return '21–50'; return '51+';
 }
 function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+window._lookupDone=false; window._lookupFailed=false;
 async function lookupDot(){
   var d=(dot?dot.value.trim():'');
   var msg=el('lookupMsg'), box=el('fmcsaResult');
-  if(!d){ if(msg)msg.innerHTML='<b>Enter a US DOT # first</b> — then click Look Up My DOT.'; return; }
+  if(!d){ if(msg)msg.innerHTML='<b>US DOT # is required.</b> Enter it first — then click Look Up My DOT.'; if(dot)dot.focus(); return; }
+  window._lookupDone=false; window._lookupFailed=false;
   if(msg)msg.textContent='Looking up FMCSA SAFER for DOT '+d+'…';
   if(box)box.style.display='none';
   try{
     var res=await fetch('/api/carrier?dot='+encodeURIComponent(d));
     var data=await res.json();
     if(!res.ok || data.error){
-      if(msg)msg.innerHTML='<b>FMCSA lookup did not return a carrier:</b> '+escHtml(data.message||'Try again, or open the SAFER snapshot directly.')+' <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string='+encodeURIComponent(d)+'" target="_blank" rel="noopener">Open SAFER snapshot →</a>';
+      window._lookupFailed=true;
+      if(msg)msg.innerHTML='<b>FMCSA lookup did not return a carrier:</b> '+escHtml(data.message||'Try again, or open the SAFER snapshot directly.')+' <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string='+encodeURIComponent(d)+'" target="_blank" rel="noopener">Open SAFER snapshot →</a> <span style="color:#5d6b82">You can still fill the claim form manually if FMCSA is down.</span>';
       return;
     }
+    window._lookupDone=true;
     window._lastInsurance = data.insuranceHistory || [];
     // Auto-fill: company + fleet size flow through the existing sync, MC/address/phone go straight to the claim form.
     if(company)company.value=data.legalName||company.value;
@@ -426,7 +430,8 @@ async function lookupDot(){
         +'<a href="'+escHtml(data.motusUrl||('https://motus.dot.gov/customer/'+encodeURIComponent(d)+'/account'))+'" target="_blank" rel="noopener">View the Motus public snapshot (Insurance Details → Include History) →</a>';
     }
   }catch(err){
-    if(msg)msg.innerHTML='<b>FMCSA lookup failed right now.</b> Your manual entries were kept. Try again, or <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string='+encodeURIComponent(d)+'" target="_blank" rel="noopener">open the SAFER snapshot directly →</a>';
+    window._lookupFailed=true;
+    if(msg)msg.innerHTML='<b>FMCSA lookup failed right now.</b> Your manual entries were kept. Try again, or <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string='+encodeURIComponent(d)+'" target="_blank" rel="noopener">open the SAFER snapshot directly →</a> <span style="color:#5d6b82">You can still fill the claim form manually if FMCSA is down.</span>';
   }
 }
 var lookupBtn=el('lookupBtn');
@@ -510,6 +515,16 @@ var form=el('claimForm');
 if(form)form.addEventListener('submit',function(e){
   e.preventDefault();
   if(!form.checkValidity()){ form.reportValidity(); return; }
+  // DOT-first gate: a claim needs a DOT, and normally a successful FMCSA lookup
+  // so the rest is pulled, not typed. If FMCSA itself failed, manual entry is allowed.
+  var dotVal=(fDot?fDot.value.trim():'');
+  if(!dotVal){ if(fDot)fDot.focus(); form.reportValidity(); return; }
+  if(!window._lookupDone && !window._lookupFailed){
+    var m2=el('formMsg');
+    if(m2)m2.innerHTML='<b>US DOT # is required — and the rest comes from it.</b> Please click "Look Up My DOT on FMCSA SAFER" at the top first, so FMCSA pulls your company, MC, address, phone, and fleet size. Then claim.';
+    if(lookupBtn)lookupBtn.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
   var name=(fCompany?fCompany.value.trim():'')||(company?company.value.trim():'')||'Your Company';
   var msg=el('formMsg');
   var items=[];
