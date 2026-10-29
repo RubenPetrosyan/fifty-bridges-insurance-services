@@ -103,6 +103,30 @@ dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% 
  h1{font-size:30px}.logo{font-size:18px}.kv{grid-template-columns:1fr}dialog{padding:18px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.progress span{transition:none}}
+
+/* --- Animations & effects --- */
+@keyframes heroGlow{0%,100%{opacity:.55}50%{opacity:.95}}
+@keyframes truckDrive{0%{transform:translateX(-12%)}100%{transform:translateX(112%)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulseGold{0%,100%{box-shadow:0 0 0 0 rgba(217,164,65,.45)}50%{box-shadow:0 0 0 12px rgba(217,164,65,0)}}
+@keyframes shimmer{0%{background-position:-200px 0}100%{background-position:200px 0}}
+.hero{position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200px 100%;animation:shimmer 3s linear infinite;opacity:.8}
+.road-runner{position:relative;height:44px;margin-top:26px;overflow:hidden;border-top:2px dashed rgba(255,255,255,.35)}
+.road-truck{position:absolute;top:2px;left:0;font-size:34px;animation:truckDrive 14s linear infinite}
+.card{transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,31,61,.18)}
+.card .icon{animation:floaty 3.5s ease-in-out infinite}
+.btn-gold{animation:pulseGold 2.8s ease-in-out infinite}
+section{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+section.in{opacity:1;transform:none}
+section.hero{opacity:1;transform:none}
+.progress span{background-image:linear-gradient(90deg,var(--green),#2bb3a0,var(--green));background-size:200px 100%;animation:shimmer 2s linear infinite}
+.game-wrap{background:#0a1f3d;border-radius:18px;padding:22px;color:#fff}
+.game-wrap h2{color:#fff}
+#truckCanvas{display:block;width:100%;max-width:760px;height:auto;margin:14px auto;background:#2b3a4a;border-radius:12px;border:2px solid #d9a441}
+.game-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+@media(prefers-reduced-motion:reduce){.road-truck,.card .icon,.btn-gold,.hero::after,.progress span{animation:none}section{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -110,7 +134,7 @@ dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% 
 <header><div class="wrap nav">
 <a class="logo" href="#portal">FIFTY <span>BRIDGES</span><small>INSURANCE SERVICES</small></a>
 <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
-<nav class="navlinks" id="navLinks" aria-label="Main navigation"><a href="#vault">Your Fleet Vault</a><a href="#tools">Your Tools</a><a href="#compare">Compare</a><a href="#forfeit">What You'd Give Up</a><a href="#faq">Questions</a><a href="https://50bridges.com/" target="_blank" rel="noopener">Main Website ↗</a><a href="#claim">Claim Your Package</a></nav>
+<nav class="navlinks" id="navLinks" aria-label="Main navigation"><a href="#vault">Your Fleet Vault</a><a href="#tools">Your Tools</a><a href="#compare">Compare</a><a href="#forfeit">What You'd Give Up</a><a href="#faq">Questions</a><a href="https://50bridges.com/" target="_blank" rel="noopener">Main Website ↗</a><a href="#game">Truck Game 🚛</a><a href="#claim">Claim Your Package</a></nav>
 <a class="btn btn-navy btn-sm" href="#claim">Claim Your Package</a>
 </div></header>
 
@@ -124,6 +148,7 @@ dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% 
 <p style="color:#d7e3f3">If you run trucks — one rig or a whole fleet — you know the pain: a broker needs a COI right now, a shipper won't load you without it, and you're stuck waiting on someone else's inbox. This vault was built to end that wait.</p>
 <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px"><a class="btn btn-gold" href="#claim">Claim Your Fifty Bridges Fleet Package</a><a class="btn btn-white" href="#vault">Unlock Your Pre-Configured COI Portal</a></div>
 <p style="color:#d7e3f3;margin-top:16px">Prefer the main site? Visit our main website: <a href="https://50bridges.com/" target="_blank" rel="noopener" style="color:#f2c572;font-weight:800">50bridges.com →</a></p>
+<div class="road-runner" aria-hidden="true"><span class="road-truck">🚛</span></div>
 <p class="mini" style="color:#aebfd8">No payment to review your package. This preview is illustrative — final coverage, limits, and pricing are confirmed after underwriting review.</p>
 </div>
 
@@ -199,6 +224,23 @@ dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% 
 <h3>Before you close this tab, look at what you'd be giving up</h3>
 <p>It's easy to think "I'll come back to it." But right now, in this vault, you already have: a COI portal that works nights and weekends, a $1,000 safety credit with your name on it, a compliance tracker, telematics, training, and onboarding checklists. Walk away, and you're back to waiting on someone else for a certificate — and starting all of that from scratch.</p>
 <p><strong id="ownedCount" style="color:#f2c572">You currently own 6 of 6 package items.</strong> Keep them, or uncheck them below and watch that number fall.</p>
+</div>
+</div></section>
+
+
+<section id="game"><div class="wrap">
+<div class="game-wrap">
+<p class="eyebrow">Take a quick drive</p>
+<h2 class="sec">Truck Run — a 60-second break, on us</h2>
+<p style="color:#d7e3f3">Steer your rig between lanes, dodge the cones, grab the fuel cans. Use ← → or A / D on a keyboard, or the buttons below on a phone. One hit ends the run — how far can you get?</p>
+<canvas id="truckCanvas" width="720" height="320" aria-label="Truck Run driving game: steer the truck, dodge cones, collect fuel"></canvas>
+<p style="text-align:center;font-weight:800" id="gameScore">Score: 0 &nbsp;•&nbsp; Distance: 0 mi &nbsp;•&nbsp; Best: 0</p>
+<div class="game-btns">
+<button class="btn btn-gold" type="button" id="gameStart">▶ Start Driving</button>
+<button class="btn btn-white" type="button" id="gameLeft" aria-label="Move truck left">◀ Left</button>
+<button class="btn btn-white" type="button" id="gameRight" aria-label="Move truck right">Right ▶</button>
+</div>
+<p class="mini" style="color:#aebfd8;text-align:center">Just for fun — no sign-up, no data collected, and it never affects your quote or vault.</p>
 </div>
 </div></section>
 
@@ -488,6 +530,102 @@ if(form)form.addEventListener('submit',function(e){
 var held=el('heldNote');
 if(held){ try{ held.textContent='Your vault is held for your review today, '+new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})+'.'; }catch(err){} }
 sync(false); updateRemoved();
+})();
+</script>
+
+<script>
+(function(){
+  // Scroll reveal
+  var secs=document.querySelectorAll('main section');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    secs.forEach(function(s){io.observe(s);});
+  } else { secs.forEach(function(s){s.classList.add('in');}); }
+  // Truck Run game
+  var cv=document.getElementById('truckCanvas'); if(!cv) return;
+  var ctx=cv.getContext('2d');
+  var W=720,H=320,lanes=[130,360,590],lane=1,running=false,raf=null;
+  var score=0,fuel=0,dist=0,speed=4,road=0,items=[],spawnT=0;
+  var best=parseInt(localStorage.getItem('fbTruckBest')||'0',10)||0;
+  var scoreEl=document.getElementById('gameScore');
+  function drawTruck(x,y,player){
+    ctx.fillStyle=player?'#d9a441':'#e8eef5';
+    ctx.fillRect(x-55,y-22,78,44); // trailer
+    ctx.fillStyle=player?'#0a1f3d':'#5d6b82';
+    ctx.fillRect(x+23,y-20,42,40); // cab
+    ctx.fillStyle='#cfe0f5'; ctx.fillRect(x+48,y-14,12,18); // window
+    ctx.fillStyle='#111';
+    [[-38,24],[8,24],[48,24],[-38,-24],[8,-24],[48,-24]].forEach(function(w){ctx.beginPath();ctx.arc(x+w[0],y+w[1],9,0,7);ctx.fill();});
+  }
+  function draw(){
+    ctx.fillStyle='#2b3a4a'; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#3d4f63'; ctx.fillRect(20,0,680,H);
+    ctx.strokeStyle='#f2c572'; ctx.setLineDash([24,18]); ctx.lineDashOffset=-road;
+    ctx.beginPath(); ctx.moveTo(250,0); ctx.lineTo(250,H); ctx.moveTo(470,0); ctx.lineTo(470,H); ctx.stroke(); ctx.setLineDash([]);
+    items.forEach(function(it){
+      if(it.kind==='cone'){
+        ctx.fillStyle='#ff6b35';
+        ctx.beginPath(); ctx.moveTo(it.x,it.y+18); ctx.lineTo(it.x-16,it.y-16); ctx.lineTo(it.x+16,it.y-16); ctx.closePath(); ctx.fill();
+        ctx.fillStyle='#fff'; ctx.fillRect(it.x-16,it.y-2,32,6);
+      } else {
+        ctx.fillStyle='#2bb3a0'; ctx.fillRect(it.x-12,it.y-16,24,32);
+        ctx.fillStyle='#fff'; ctx.font='bold 16px Arial'; ctx.textAlign='center'; ctx.fillText('⛽',it.x,it.y+6);
+      }
+    });
+    drawTruck(lanes[lane],H-60,true);
+    if(!running){
+      ctx.fillStyle='rgba(10,31,61,.72)'; ctx.fillRect(0,0,W,H);
+      ctx.fillStyle='#fff'; ctx.font='bold 26px Arial'; ctx.textAlign='center';
+      ctx.fillText(score>0?'Run over! Press Start to drive again.':'Press Start to drive!',W/2,H/2-10);
+      ctx.font='16px Arial'; ctx.fillText('← → / A / D to steer  •  Dodge cones  •  Grab fuel (+50)',W/2,H/2+22);
+    }
+  }
+  function step(){
+    if(!running) return;
+    road+=speed; dist+=speed*0.02;
+    spawnT--;
+    if(spawnT<=0){
+      var kind=Math.random()<0.72?'cone':'fuel';
+      items.push({kind:kind,x:lanes[Math.floor(Math.random()*3)],y:-30});
+      spawnT=Math.max(28,70-Math.floor(dist/10));
+    }
+    items.forEach(function(it){it.y+=speed;});
+    items=items.filter(function(it){return it.y<H+40;});
+    var px=lanes[lane],py=H-60;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];
+      if(Math.abs(it.x-px)<55 && Math.abs(it.y-py)<40){
+        if(it.kind==='fuel'){ fuel+=50; items.splice(i,1); }
+        else { running=false; endRun(); return; }
+      }
+    }
+    speed=Math.min(11,4+dist/120);
+    if(scoreEl) scoreEl.textContent='Score: '+(Math.floor(dist)+fuel)+'  •  Distance: '+Math.floor(dist)+' mi  •  Best: '+best;
+    draw(); raf=requestAnimationFrame(step);
+  }
+  function endRun(){
+    var total=Math.floor(dist)+fuel;
+    if(total>best){ best=total; try{localStorage.setItem('fbTruckBest',String(best));}catch(e){} }
+    if(scoreEl) scoreEl.textContent='Run over! Final score: '+total+'  •  Distance: '+Math.floor(dist)+' mi  •  Best: '+best;
+    var btn=document.getElementById('gameStart'); if(btn) btn.textContent='▶ Drive Again';
+    draw();
+  }
+  function start(){
+    if(running) return;
+    running=true; score=0; fuel=0; dist=0; speed=4; items=[]; lane=1;
+    var btn=document.getElementById('gameStart'); if(btn) btn.textContent='⏸ Driving…';
+    cancelAnimationFrame(raf); raf=requestAnimationFrame(step);
+  }
+  function move(d){ lane=Math.max(0,Math.min(2,lane+d)); if(!running) draw(); }
+  document.getElementById('gameStart').addEventListener('click',start);
+  document.getElementById('gameLeft').addEventListener('click',function(){move(-1);});
+  document.getElementById('gameRight').addEventListener('click',function(){move(1);});
+  document.addEventListener('keydown',function(e){
+    if(!running && (e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='a'||e.key==='A'||e.key==='d'||e.key==='D')) return;
+    if(e.key==='ArrowLeft'||e.key==='a'||e.key==='A') move(-1);
+    if(e.key==='ArrowRight'||e.key==='d'||e.key==='D') move(1);
+  });
+  draw();
 })();
 </script>
 </body>
