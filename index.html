@@ -168,6 +168,7 @@ section.hero{opacity:1;transform:none}
 <div class="progress" aria-label="How much of your vault you have claimed"><span id="progressBar" style="width:40%"></span></div>
 <p class="mini" id="progressText" style="margin-top:0"><strong>Your vault is 40% claimed</strong> — it's already built. Finish claiming it, don't leave the rest behind.</p>
 <div class="kv"><div><b>Vault ID</b><span id="vaultId">FB-PENDING</span></div><div><b>US DOT #</b><span id="dotOut">—</span></div><div><b>Your COI Generator</b><span style="color:#0f6b5e;font-weight:700">Active — 24/7</span></div><div><b>Your Safety Audit Credit</b><span style="font-weight:800">$1,000 — Locked In</span></div></div>
+<div id="pulledBox" style="border:1px solid #dde5ee;border-radius:12px;padding:14px;margin-top:14px;background:#fff"><strong>What we pulled from FMCSA for you</strong><p class="mini" id="pulledText" style="margin-bottom:0">No FMCSA data pulled yet — enter your US DOT # above and click "Look Up My DOT on FMCSA SAFER". Everything below will be filled from that record, so you can see it and check it before you claim.</p></div>
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn btn-navy btn-sm" type="button" id="coiBtn">Download Real ACORD 25 Sample (Fillable PDF)</button><button class="btn btn-outline btn-sm" type="button" id="coiPreviewBtn">Preview Sample COI</button><a class="btn btn-outline btn-sm" href="#vault">Review Your Vault ↓</a></div>
 <p class="mini" id="coiMsg" aria-live="polite"></p>
 <p class="mini">Closing this page doesn't cancel a quote — it leaves a system you already own sitting unclaimed.</p>
@@ -277,6 +278,7 @@ section.hero{opacity:1;transform:none}
 <aside class="summary">
 <h3>Your Package — At a Glance</h3>
 <p><b id="sumCompany">Your company</b> — <span id="sumDot">DOT # to confirm</span></p>
+<p class="mini" id="sumPulled" style="margin-top:0">What FMCSA pulled for you will show here after your DOT lookup — MC, phone, address, and cargo — so you can see it before you claim.</p>
 <ul><li>Your COI Center: <b>Pre-Configured</b></li><li>Your Safety Audit Credit: <b>$1,000 — Locked In</b></li><li>Your Compliance Tracker: <b>Ready for Review</b></li><li>Your Tools: <b>Telematics, Training &amp; Onboarding</b></li></ul>
 <p>After you claim, a Fifty Bridges specialist reviews your tailored coverage, confirms limits and pricing, and hands you the keys to your vault. Reviewing creates no obligation.</p>
 <a class="btn btn-navy" href="#portal">Unlock Your Pre-Configured COI Portal</a>
@@ -361,10 +363,10 @@ function updateRemoved(){
   updateProgress();
 }
 if(company)company.addEventListener('input',function(){sync(false);});
-if(dot)dot.addEventListener('input',function(){window._lookupDone=false; window._lookupFailed=false; sync(false);});
+if(dot)dot.addEventListener('input',function(){window._lookupDone=false; window._lookupFailed=false; updatePulledBox(null); sync(false);});
 if(trucks)trucks.addEventListener('change',function(){ if(fTrucks)fTrucks.value=trucks.value; });
 if(fCompany)fCompany.addEventListener('input',function(){sync(true);});
-if(fDot)fDot.addEventListener('input',function(){window._lookupDone=false; window._lookupFailed=false; sync(true);});
+if(fDot)fDot.addEventListener('input',function(){window._lookupDone=false; window._lookupFailed=false; updatePulledBox(null); sync(true);});
 if(fTrucks)fTrucks.addEventListener('change',function(){ if(trucks)trucks.value=fTrucks.value; });
 var checks=el('packageChecks');
 if(checks)checks.addEventListener('change',updateRemoved);
@@ -378,6 +380,28 @@ function powerBucket(n){
   if(n<=5)return '1–5'; if(n<=20)return '6–20'; if(n<=50)return '21–50'; return '51+';
 }
 function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function updatePulledBox(data){
+  var box=el('pulledBox'), txt=el('pulledText'), sum=el('sumPulled');
+  if(!box||!txt)return;
+  if(!data){
+    txt.textContent='No FMCSA data pulled yet — enter your US DOT # above and click "Look Up My DOT on FMCSA SAFER". Everything below will be filled from that record, so you can see it and check it before you claim.';
+    if(sum)sum.textContent='What FMCSA pulled for you will show here after your DOT lookup — MC, phone, address, and cargo — so you can see it before you claim.';
+    return;
+  }
+  var lines=[
+    'Company: '+(data.legalName||'—'),
+    'MC: '+((data.mcNumbers||[]).join(', ')||'—'),
+    'Power Units: '+(data.powerUnits!=null?data.powerUnits:'—')+' • Drivers: '+(data.drivers!=null?data.drivers:'—'),
+    'Cargo: '+((data.cargo||[]).join(', ')||'—'),
+    'Operation: '+((data.operationClassification||[]).join(', ')||'—')+' • ' +((data.carrierOperation||[]).join(', ')||'—'),
+    'Physical Address: '+(data.physicalAddress||'—'),
+    'Phone: '+(data.phone||'—'),
+    'USDOT Status: '+(data.usdotStatus||'—')+' • Authority: '+(data.authorityStatus||'—')+' • MCS-150: '+(data.mcs150Date||'—'),
+    'Source: FMCSA SAFER, as of '+(data.dataAsOf||'latest')+' — check it, and tell us if anything looks wrong before you claim.'
+  ];
+  txt.innerHTML=lines.map(function(l){return escHtml(l);}).join('<br>');
+  if(sum)sum.innerHTML='Pulled from FMCSA: '+escHtml(data.legalName||'')+' • MC '+escHtml((data.mcNumbers||[]).join(', ')||'—')+' • '+escHtml(data.phone||'—')+' • '+escHtml(data.physicalAddress||'—')+' • Cargo: '+escHtml((data.cargo||[]).join(', ')||'—');
+}
 window._lookupDone=false; window._lookupFailed=false;
 async function lookupDot(){
   var d=(dot?dot.value.trim():'');
@@ -395,6 +419,7 @@ async function lookupDot(){
       return;
     }
     window._lookupDone=true;
+    updatePulledBox(data);
     window._lastInsurance = data.insuranceHistory || [];
     // Auto-fill: company + fleet size flow through the existing sync, MC/address/phone go straight to the claim form.
     if(company)company.value=data.legalName||company.value;
@@ -413,7 +438,8 @@ async function lookupDot(){
     if(msg)msg.innerHTML='<b style="color:#0f6b5e">Found on FMCSA SAFER: '+escHtml(data.legalName)+'</b> — your form was auto-filled from that record. Check it before you claim.';
     if(box){
       box.style.display='block';
-      box.innerHTML='<strong>FMCSA SAFER record (as of '+(data.dataAsOf||'latest')+')</strong><br>'
+      try{ box.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){}
+      box.innerHTML='<strong style="font-size:17px">✓ What we pulled from FMCSA for DOT '+escHtml(d)+'</strong><br><span style="color:#5d6b82">Check it below — this is the record your claim form was filled from. If anything looks wrong, tell us before you claim.</span><br><strong>FMCSA SAFER record (as of '+(data.dataAsOf||'latest')+')</strong><br>'
         +'Legal name: '+escHtml(data.legalName)+'<br>'
         +(data.dba?'DBA: '+escHtml(data.dba)+'<br>':'')
         +'USDOT Status: '+escHtml(data.usdotStatus||'—')+' &nbsp;•&nbsp; Authority: '+escHtml(data.authorityStatus||'—')+'<br>'
