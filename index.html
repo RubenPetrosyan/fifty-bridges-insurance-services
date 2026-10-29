@@ -6,6 +6,15 @@
 <title>Commercial Truck Insurance for Fleet Owners &amp; Owner-Operators | Fifty Bridges Insurance Services</title>
 <meta name="description" content="You're not starting from scratch. Your Fifty Bridges Fleet Vault is already built — with a 24/7 COI portal, a $1,000 safety audit credit, and a DOT compliance tracker ready to review. Claim your commercial truck insurance package for fleets and owner-operators.">
 <link rel="canonical" href="https://fifty-bridges-insurance-services.vercel.app/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="theme-color" content="#0a1f3d">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:site_name" content="Fifty Bridges Insurance Services">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://fifty-bridges-insurance-services.vercel.app/og-image.png">
+<meta property="og:image:alt" content="Fifty Bridges Insurance Services — Commercial Truck Insurance">
+<meta name="twitter:image" content="https://fifty-bridges-insurance-services.vercel.app/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Your Fifty Bridges Fleet Vault is Ready — Commercial Truck Insurance">
 <meta property="og:description" content="Claim your pre-configured fleet protection package: instant COIs, a $1,000 safety audit credit, and DOT compliance tracking for fleet owners and owner-operators.">
@@ -14,10 +23,13 @@
 <meta name="twitter:title" content="Your Fifty Bridges Fleet Vault is Ready">
 <meta name="twitter:description" content="Your commercial truck insurance package is already built. Review it, don't start over.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"InsuranceAgency","name":"Fifty Bridges Insurance Services","description":"Commercial truck insurance brokerage for fleet owners and independent owner-operators, with a pre-configured Fleet Vault, COI portal, safety audit credit, and DOT compliance tracking.","address":{"@type":"PostalAddress","streetAddress":"4695 MacArthur Court","addressLocality":"Newport Beach","addressRegion":"CA","postalCode":"92660","addressCountry":"US"},"areaServed":"US","url":"https://fifty-bridges-insurance-services.vercel.app/"}
+{"@context":"https://schema.org","@type":"InsuranceAgency","@id":"https://fifty-bridges-insurance-services.vercel.app/#agency","name":"Fifty Bridges Insurance Services","description":"Commercial truck insurance brokerage for fleet owners and independent owner-operators, with a pre-configured Fleet Vault, COI portal, safety audit credit, and DOT compliance tracking.","address":{"@type":"PostalAddress","streetAddress":"4695 MacArthur Court","addressLocality":"Newport Beach","addressRegion":"CA","postalCode":"92660","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"url":"https://fifty-bridges-insurance-services.vercel.app/","knowsAbout":["Commercial truck insurance","Auto liability insurance","Motor truck cargo insurance","Physical damage insurance","Certificate of insurance"]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How fast can I get a certificate of insurance (COI)?","acceptedAnswer":{"@type":"Answer","text":"Your self-service COI portal is active from day one in your Fifty Bridges Fleet Vault, so you can issue a COI when a shipper or broker asks for one instead of waiting 24 to 48 hours."}},{"@type":"Question","name":"What is the $1,000 safety audit credit?","acceptedAnswer":{"@type":"Answer","text":"It is a credit already staged in your Fleet Vault toward a structured safety and loss-control review for your fleet. Eligibility and program terms are confirmed when you claim your package."}},{"@type":"Question","name":"Do I have to pay to review my package?","acceptedAnswer":{"@type":"Answer","text":"No. Reviewing your pre-configured package costs nothing, and reviewing it creates no obligation. Final coverage, limits, and pricing are confirmed after underwriting review."}}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://fifty-bridges-insurance-services.vercel.app/#website","url":"https://fifty-bridges-insurance-services.vercel.app/","name":"Fifty Bridges Insurance Services","publisher":{"@id":"https://fifty-bridges-insurance-services.vercel.app/#agency"}}
 </script>
 <style>
 :root{--navy:#0a1f3d;--navy2:#102e5c;--gold:#d9a441;--gold2:#f2c572;--bg:#f4f6f8;--ink:#17233a;--muted:#5d6b82;--line:#dde5ee;--red:#b42318;--green:#0f6b5e}
@@ -130,7 +142,7 @@ dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% 
 <div class="progress" aria-label="How much of your vault you have claimed"><span id="progressBar" style="width:40%"></span></div>
 <p class="mini" id="progressText" style="margin-top:0"><strong>Your vault is 40% claimed</strong> — it's already built. Finish claiming it, don't leave the rest behind.</p>
 <div class="kv"><div><b>Vault ID</b><span id="vaultId">FB-PENDING</span></div><div><b>US DOT #</b><span id="dotOut">—</span></div><div><b>Your COI Generator</b><span style="color:#0f6b5e;font-weight:700">Active — 24/7</span></div><div><b>Your Safety Audit Credit</b><span style="font-weight:800">$1,000 — Locked In</span></div></div>
-<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn btn-navy btn-sm" type="button" id="coiBtn">Download Your Sample COI (PDF)</button><button class="btn btn-outline btn-sm" type="button" id="coiPreviewBtn">Preview Sample COI</button><a class="btn btn-outline btn-sm" href="#vault">Review Your Vault ↓</a></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn btn-navy btn-sm" type="button" id="coiBtn">Download Real ACORD 25 Sample (Fillable PDF)</button><button class="btn btn-outline btn-sm" type="button" id="coiPreviewBtn">Preview Sample COI</button><a class="btn btn-outline btn-sm" href="#vault">Review Your Vault ↓</a></div>
 <p class="mini" id="coiMsg" aria-live="polite"></p>
 <p class="mini">Closing this page doesn't cancel a quote — it leaves a system you already own sitting unclaimed.</p>
 <p class="mini" id="heldNote">Your vault is held for your review today.</p>
@@ -249,51 +261,9 @@ dialog{border:0;border-radius:18px;padding:26px;max-width:620px;width:calc(100% 
 <p style="font-size:13px;color:#9db2cc">This site is a marketing preview. Coverage is subject to underwriting, policy terms, and applicable filings. The $1,000 Safety Audit Credit and tool access are described as pre-configured in your vault preview; eligibility and program terms are confirmed on claim review.</p>
 </div></footer>
 
-<dialog id="coiDialog" aria-labelledby="coiTitle"><h2 id="coiTitle" style="color:var(--navy);margin-top:0">Sample Certificate of Insurance — Preview</h2><p><b id="coiCompany">Your Company</b><br><span id="coiDot">US DOT # —</span><br>Certificate Holder: Shipper / Broker (on request)<br>Coverage preview: Auto Liability • Motor Truck Cargo • Physical Damage<br>Status: <span style="color:#0f6b5e;font-weight:800">Pre-Configured in Your COI Center</span></p><p style="color:var(--muted);font-size:14px">This is a sample layout for review only — not a live certificate. Your live COI is issued from your portal after your coverage is locked in.</p><form method="dialog"><button class="btn btn-gold" type="button" id="coiPdfBtn" style="margin-right:10px">Download This Sample as PDF</button><button class="btn btn-navy">Close Preview</button></form></dialog>
+<dialog id="coiDialog" aria-labelledby="coiTitle"><h2 id="coiTitle" style="color:var(--navy);margin-top:0">Sample Certificate of Insurance — Preview</h2><p><b id="coiCompany">Your Company</b><br><span id="coiDot">US DOT # —</span><br>Certificate Holder: Shipper / Broker (on request)<br>Coverage preview: Auto Liability • Motor Truck Cargo • Physical Damage<br>Status: <span style="color:#0f6b5e;font-weight:800">Pre-Configured in Your COI Center</span></p><p style="color:var(--muted);font-size:14px">This downloads the real, fillable ACORD 25 form — producer prefilled as Fifty Bridges Insurance Services, all fields still editable. It is a sample for review only, not a live certificate: no insurer or policy number is shown, and it does not bind coverage. Your live COI is issued from your portal after your coverage is locked in.</p><form method="dialog"><button class="btn btn-gold" type="button" id="coiPdfBtn" style="margin-right:10px">Download the Real ACORD 25 Sample</button><button class="btn btn-navy">Close Preview</button></form></dialog>
 
 <script>
-/* PDF_BUILDER_START */
-function pdfEscape(s){return String(s).replace(/\\/g,'\\\\').replace(/\(/g,'\\(').replace(/\)/g,'\\)');}
-function pdfAscii(s){return String(s||'').replace(/[^\x20-\x7E]/g,'-');}
-function pdfWrap(text,max){var words=pdfAscii(text).split(/\s+/),lines=[],cur='';words.forEach(function(w){if((cur+' '+w).trim().length>max){if(cur)lines.push(cur);cur=w;}else{cur=(cur+' '+w).trim();}});if(cur)lines.push(cur);return lines;}
-function buildSampleCoiPdf(data){
-  var lines=[['SAMPLE - NOT A LIVE CERTIFICATE OF INSURANCE',16,true],['Fifty Bridges Insurance Services - Fleet Vault Preview',12,false],['',12,false]];
-  lines.push(['Company: '+(data.company||'Your Company'),12,false]);
-  lines.push(['US DOT #: '+(data.dot||'-'),12,false]);
-  lines.push(['Power Units: '+(data.trucks||'-'),12,false]);
-  lines.push(['Date generated: '+data.date,12,false]);
-  lines.push(['',12,false]);
-  lines.push(['Coverage preview:',12,true]);
-  (data.items||[]).forEach(function(it){lines.push(['- '+it,12,false]);});
-  lines.push(['',12,false]);
-  lines.push(['Certificate Holder: Shipper / Broker (on request)',12,false]);
-  lines.push(['Status: Pre-Configured in Your COI Center',12,false]);
-  lines.push(['',12,false]);
-  pdfWrap('IMPORTANT: This sample PDF is generated from your Fleet Vault preview. It is NOT a certificate of insurance, does not bind coverage, and contains no policy number or insurer. A live COI is issued only after your coverage is locked in and confirmed after underwriting review.',88).forEach(function(l){lines.push([l,11,false]);});
-  var content='BT\n',y=750;
-  lines.forEach(function(row,i){
-    var font=row[2]?'/F2':'/F1';
-    content+=font+' '+row[1]+' Tf 72 '+y+' Td ('+pdfEscape(row[0])+') Tj\n';
-    y-= (row[1]+8);
-    if(y<60)y=60;
-  });
-  content+='ET';
-  var objs=[];
-  objs.push('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n');
-  objs.push('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n');
-  objs.push('3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>\nendobj\n');
-  objs.push('4 0 obj\n<< /Length '+content.length+' >>\nstream\n'+content+'\nendstream\nendobj\n');
-  objs.push('5 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n');
-  objs.push('6 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>\nendobj\n');
-  var pdf='%PDF-1.4\n',offsets=[0];
-  objs.forEach(function(o){offsets.push(pdf.length);pdf+=o;});
-  var xrefPos=pdf.length;
-  pdf+='xref\n0 7\n0000000000 65535 f \n';
-  for(var i=1;i<=6;i++){pdf+=String(offsets[i]).padStart(10,'0')+' 00000 n \n';}
-  pdf+='trailer\n<< /Size 7 /Root 1 0 R >>\nstartxref\n'+xrefPos+'\n%%EOF';
-  return pdf;
-}
-/* PDF_BUILDER_END */
 (function(){
 function el(id){return document.getElementById(id);}
 var company=el('company'),dot=el('dot'),trucks=el('trucks');
@@ -414,21 +384,55 @@ if(menuBtn && navLinks){
   });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); } });
 }
-function downloadCoiPdf(){
-  var name=(company?company.value.trim():'')||(fCompany?fCompany.value.trim():'')||'Your Company';
-  var items=[];
-  document.querySelectorAll('#packageChecks input[type="checkbox"]').forEach(function(b){if(b.checked)items.push(b.getAttribute('data-item')||b.value);});
-  if(!items.length)items=['Auto Liability','Motor Truck Cargo','Physical Damage'];
-  var pdf=buildSampleCoiPdf({company:name,dot:(dot?dot.value.trim():'')||(fDot?fDot.value.trim():'')||'',trucks:(trucks?trucks.value:'')||'',items:items,date:new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})});
-  var blob=new Blob([pdf],{type:'application/pdf'});
-  var url=URL.createObjectURL(blob);
+async function loadPdfLib(){
+  if(window.PDFLib) return window.PDFLib;
+  return new Promise(function(resolve,reject){
+    var sc=document.createElement('script');
+    sc.src='https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js';
+    sc.onload=function(){resolve(window.PDFLib);}; sc.onerror=reject;
+    document.head.appendChild(sc);
+  });
+}
+function fallbackCoiDownload(name){
   var a=document.createElement('a');
-  a.href=url;
-  a.download=name.replace(/[^A-Za-z0-9_-]+/g,'-').replace(/-+/g,'-')+'-Sample-COI.pdf';
+  a.href='acord-25-sample.pdf';
+  a.download=name.replace(/[^A-Za-z0-9_-]+/g,'-').replace(/-+/g,'-')+'-ACORD-25-Sample.pdf';
   document.body.appendChild(a); a.click(); a.remove();
-  setTimeout(function(){URL.revokeObjectURL(url);},1000);
+}
+async function downloadCoiPdf(){
+  var name=(company?company.value.trim():'')||(fCompany?fCompany.value.trim():'')||'Your Company';
+  var dotNum=(dot?dot.value.trim():'')||(fDot?fDot.value.trim():'')||'';
+  try{
+    var PDFLib=await loadPdfLib();
+    var bytes=await (await fetch('acord-25-sample.pdf')).arrayBuffer();
+    var pdfDoc=await PDFLib.PDFDocument.load(bytes);
+    var form=pdfDoc.getForm();
+    try{
+      if(name && name!=='Your Company'){
+        var insured=form.getTextField('NamedInsured_FullName_A');
+        if(insured) insured.setText(name);
+      }
+      var remarks=form.getTextField('CertificateOfLiabilityInsurance_ACORDForm_RemarkText_A');
+      if(remarks){
+        var base='SAMPLE - NOT A LIVE CERTIFICATE OF INSURANCE. No policy number or insurer shown; this sample does not bind coverage.';
+        if(name && name!=='Your Company') base+=' Company entered: '+name+'.';
+        if(dotNum) base+=' US DOT # '+dotNum+'.';
+        remarks.setText(base);
+      }
+    }catch(e){}
+    var out=await pdfDoc.save();
+    var blob=new Blob([out],{type:'application/pdf'});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url;
+    a.download=name.replace(/[^A-Za-z0-9_-]+/g,'-').replace(/-+/g,'-')+'-ACORD-25-Sample.pdf';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(url);},1000);
+  }catch(e){
+    fallbackCoiDownload(name);
+  }
   coiOpened=true;
-  var msg=el('coiMsg'); if(msg)msg.innerHTML='<b style="color:#0f6b5e">Your sample COI PDF downloaded.</b> It is clearly marked SAMPLE - it is not a live certificate. A live COI is issued only after your coverage is locked in.';
+  var msg=el('coiMsg'); if(msg)msg.innerHTML='<b style="color:#0f6b5e">Your real, fillable ACORD 25 sample downloaded.</b> Producer is prefilled as Fifty Bridges Insurance Services and every field stays editable. It is marked SAMPLE - it is not a live certificate. A live COI is issued only after your coverage is locked in.';
   updateProgress();
 }
 function openCoiPreview(){
