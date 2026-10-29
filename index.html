@@ -391,6 +391,7 @@ async function lookupDot(){
       if(msg)msg.innerHTML='<b>FMCSA lookup did not return a carrier:</b> '+escHtml(data.message||'Try again, or open the SAFER snapshot directly.')+' <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string='+encodeURIComponent(d)+'" target="_blank" rel="noopener">Open SAFER snapshot →</a>';
       return;
     }
+    window._lastInsurance = data.insuranceHistory || [];
     // Auto-fill: company + fleet size flow through the existing sync, MC/address/phone go straight to the claim form.
     if(company)company.value=data.legalName||company.value;
     if(trucks && data.powerUnits!=null){ var b=powerBucket(data.powerUnits); if(b)trucks.value=b; }
@@ -398,6 +399,13 @@ async function lookupDot(){
     var mcEl=el('fMc'); if(mcEl && data.mcNumbers && data.mcNumbers.length)mcEl.value=data.mcNumbers.join(', ');
     var phEl=el('fPhone'); if(phEl && data.phone)phEl.value=data.phone;
     var adEl=el('fAddress'); if(adEl && data.physicalAddress)adEl.value=data.physicalAddress;
+    var cargoEl=el('fCargo');
+    if(cargoEl && data.cargo && data.cargo.length){
+      if(data.cargo.indexOf('General Freight')>=0) cargoEl.value='General Freight';
+      else if(data.cargo.indexOf('Refrigerated Food')>=0) cargoEl.value='Refrigerated';
+      else if(data.cargo.indexOf('Motor Vehicles')>=0) cargoEl.value='Auto Hauler';
+      else cargoEl.value='Other';
+    }
     if(msg)msg.innerHTML='<b style="color:#0f6b5e">Found on FMCSA SAFER: '+escHtml(data.legalName)+'</b> — your form was auto-filled from that record. Check it before you claim.';
     if(box){
       box.style.display='block';
@@ -407,9 +415,15 @@ async function lookupDot(){
         +'USDOT Status: '+escHtml(data.usdotStatus||'—')+' &nbsp;•&nbsp; Authority: '+escHtml(data.authorityStatus||'—')+'<br>'
         +'MC: '+escHtml((data.mcNumbers||[]).join(', ')||'—')+' &nbsp;•&nbsp; Power Units: '+escHtml(data.powerUnits!=null?data.powerUnits:'—')+' &nbsp;•&nbsp; Drivers: '+escHtml(data.drivers!=null?data.drivers:'—')+'<br>'
         +'MCS-150 Date: '+escHtml(data.mcs150Date||'—')+' &nbsp;•&nbsp; Cargo: '+escHtml((data.cargo||[]).join(', ')||'—')+'<br>'
+        +'Operation: '+escHtml((data.operationClassification||[]).join(', ')||'—')+' &nbsp;•&nbsp; Carrier Operation: '+escHtml((data.carrierOperation||[]).join(', ')||'—')+'<br>'
         +'Physical Address: '+escHtml(data.physicalAddress||'—')+'<br>'
-        +'<span style="color:#5d6b82">Insurance filing history is NOT auto-filled here — MOTUS is login-gated and FMCSA Licensing &amp; Insurance is behind a reCAPTCHA, so that part is reviewed separately. FEIN and garaging are never copied from this record.</span><br>'
-        +'<a href="'+escHtml(data.saferUrl)+'" target="_blank" rel="noopener">View the full SAFER snapshot →</a>';
+        +'<strong>Insurance history (FMCSA open data — cancelled/replaced filings only):</strong><br>'
+        +((data.insuranceHistory && data.insuranceHistory.length)
+          ? data.insuranceHistory.map(function(r){ return escHtml(r.insurer||'—')+' • '+escHtml(r.policyNumber||'—')+' • '+escHtml(r.form||'—')+' • $'+escHtml(r.amount!=null?r.amount:'—')+' • '+escHtml(r.status||'—')+' • Eff. '+escHtml(r.effectiveDate||'—')+(r.cancellationDate?' • Cancelled '+escHtml(r.cancellationDate):''); }).join('<br>')
+          : 'No cancelled/replaced filings found in FMCSA open data for this DOT.')+'<br>'
+        +'<span style="color:#5d6b82">This history does NOT include the current active filing — active filings are not in that open dataset. Check the Motus public snapshot for the full record including the active filing, with Include History on. FEIN and garaging are never copied from any record.</span><br>'
+        +'<a href="'+escHtml(data.saferUrl)+'" target="_blank" rel="noopener">View the full SAFER snapshot →</a> &nbsp;•&nbsp; '
+        +'<a href="'+escHtml(data.motusUrl||('https://motus.dot.gov/customer/'+encodeURIComponent(d)+'/account'))+'" target="_blank" rel="noopener">View the Motus public snapshot (Insurance Details → Include History) →</a>';
     }
   }catch(err){
     if(msg)msg.innerHTML='<b>FMCSA lookup failed right now.</b> Your manual entries were kept. Try again, or <a href="https://safer.fmcsa.dot.gov/query.asp?searchtype=ANY&query_type=queryCarrierSnapshot&query_param=USDOT&query_string='+encodeURIComponent(d)+'" target="_blank" rel="noopener">open the SAFER snapshot directly →</a>';
@@ -513,7 +527,8 @@ if(form)form.addEventListener('submit',function(e){
     mc_number:(el('fMc')?el('fMc').value.trim():''),
     physical_address:(el('fAddress')?el('fAddress').value.trim():''),
     phone:(el('fPhone')?el('fPhone').value.trim():''),
-    fmcsa_source:'FMCSA SAFER lookup (insurance history not included - MOTUS/L&I gated)',
+    fmcsa_source:'FMCSA SAFER + FMCSA open data lookup (insurance history = cancelled/replaced filings only; active filing on Motus public snapshot)',
+    insurance_history_summary:(window._lastInsurance && window._lastInsurance.length ? window._lastInsurance.map(function(r){ return (r.insurer||'')+' '+ (r.policyNumber||'')+' '+ (r.form||'')+' $'+(r.amount!=null?r.amount:'')+' '+ (r.status||'')+' eff. '+(r.effectiveDate||'')+(r.cancellationDate?' canc. '+(r.cancellationDate):''); }).join(' | ') : 'none found in FMCSA open data; check Motus public snapshot for active filing'),
     package_items:items.join(', '),
     notes:(el('fNotes')?el('fNotes').value.trim():'')
   };
